@@ -9,6 +9,6 @@ steps:
   - 'image'
   - 'deployment/my-deployment'
   - 'my-container=gcr.io/github-cloud-build/cb-test-img:latest'
-  env: 
+  env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
