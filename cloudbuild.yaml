@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ["build", "-t", "gcr.io/github-cloud-build/cb-test-img", "."]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "-t", "gcr.io/github-cloud-build/cb-test-img"]
+  args: ["push", "gcr.io/github-cloud-build/cb-test-img"]
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'set'
