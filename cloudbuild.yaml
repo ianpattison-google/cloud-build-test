@@ -1,3 +1,14 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "gcr.io/github-cloud-build/
+  args: ["build", "-t", "gcr.io/github-cloud-build/cb-test-img", "."]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "-t", "gcr.io/github-cloud-build/cb-test-img"]
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'set'
+  - 'image'
+  - 'deployment/my-deployment'
+  - 'my-container=gcr.io/github-cloud-build/cb-test-img:latest'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
